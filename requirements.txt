@@ -1,0 +1,13 @@
+pygame~=2.0.1
+uuid~=1.30
+gTTS~=2.2.1
+pyttsx3~=2.90
+PyPDF2~=1.26.0
+future~=0.18.2
+bs4~=0.0.1
+beautifulsoup4~=4.9.3
+psycopg2~=2.8.6
+pandas~=1.2.0
+googletrans~=4.0.0rc1
+Pillow~=8.1.0
+Flask~=1.1.2
