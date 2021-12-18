@@ -91,9 +91,11 @@ def event():
 def trans_fnc(*args):
     tr = googletrans.Translator()
     data = str(txt.get('1.0', 'end-1c'))
+    fr_lang = tr.detect(data)
+    tv1.set(fr_lang.lang)
     try:
 
-        a = tr.translate(data, src=tv1.get(), dest=tv6.get())
+        a = tr.translate(data, src=fr_lang.lang, dest=tv6.get())
         txt1['state'] = 'normal'
         txt1.delete(1.0, tk.END)
         txt1.insert(1.0, a.text)
@@ -322,8 +324,9 @@ if __name__ == '__main__':
     txt3 = Label(tab3, text='From', font=('Arial', 19))
     txt.place(x=110, y=42)
 
-    com = Entry(tab3, textvariable=tv1, font=('Arial', 12))
-    com.place(x=120, y=330 - 30, height=30)
+    com = Label(tab3, textvariable=tv1, font=('Arial', 12))
+    com.place(x=120, y=330 - 30, height=30,width=120)
+
     txt3.place(x=30, y=330 - 30)
 
     txt2 = Label(tab3, text='TO', font=('Arial', 19))
@@ -381,6 +384,7 @@ if __name__ == '__main__':
     but3 = Button(tb4,text='Select Folder',command=sel_fol,height=2,width=10,font=('Arial',16))
     but3.place(x=650,y=420)
 
+
     image3 = Image.open(interface_bg[3])
     img3 = ImageTk.PhotoImage(image3)
     bg3 = Label(tb5, image=img3)
@@ -390,4 +394,6 @@ if __name__ == '__main__':
     lab8 = Label(tb5, text=r'For more information mail us to - enquiry.pronounceller@gmail.com', font=('Arial', 10))
     lab7.place(x=150, y=200)
     lab8.place(x=170, y=450)
+
+    root.update()
     root.mainloop()
